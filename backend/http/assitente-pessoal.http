@@ -1,0 +1,7 @@
+POST https://n8n.gloubapp.com/webhook/assistente
+Content-Type: application/json
+
+{
+  "sessionId": "1212131",
+  "chatInput": "Todos resultados"
+}
