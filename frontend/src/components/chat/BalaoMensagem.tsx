@@ -25,8 +25,8 @@ function BalaoEsquerdo(props: BalaoMensagemProps) {
 				{!props.omitirAutor && (
 					<span className="text-xs text-zinc-600">{props.mensagem.autor}</span>
 				)}
-				<div className="bg-black text-white px-7 py-4 sm:w-80 rounded-r-3xl rounded-bl-3xl">
-					<ConteudoMD markdown={props.mensagem.texto} />
+				<div className="bg-black text-white px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:w-80 w-full max-w-md rounded-r-3xl rounded-bl-3xl break-words overflow-auto">
+    				<ConteudoMD markdown={props.mensagem.texto} />
 				</div>
 			</div>
 		</div>
