@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { Projeto } from "@core"
 import ItemProjeto from "./ItemProjeto"
 import { Carousel } from "../ui/carousel"
