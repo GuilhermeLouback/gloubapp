@@ -9,6 +9,8 @@ export default function useChat() {
 	const [mensagens, setMensagens] = useLocalStorage<Mensagem[]>("mensagens", [])
 	const [pensando, setPensando] = useState(false)
 
+	
+
 	async function adicionarMensagem(texto: string) {
 		try {
 			setPensando(true)
