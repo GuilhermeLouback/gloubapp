@@ -41,6 +41,13 @@ export const tecnologias: Tecnologia[] = [
 	{ id: 29, nome: "Dart", destaque: false, descricao: "Linguagem de programação para desenvolvimento de aplicativos móveis com Flutter.", imagem: `${ASSETS}/dart.svg` },
 	{ id: 30, nome: "Laravel", destaque: false, descricao: "Framework PHP para desenvolvimento web elegante e produtivo.", imagem: "https://cdn.simpleicons.org/laravel/FF2D20" },
 	{ id: 31, nome: "CodeIgniter", destaque: false, descricao: "Framework PHP leve e rápido para construção de aplicações web.", imagem: "https://cdn.simpleicons.org/codeigniter/EF4223" },
+	{ id: 32, nome: "MySQL", destaque: false, descricao: "Sistema de gerenciamento de banco de dados relacional open-source.", imagem: "https://cdn.simpleicons.org/mysql/4479A1" },
+	{ id: 33, nome: "jQuery", destaque: false, descricao: "Biblioteca JavaScript para manipulação de DOM e interações.", imagem: "https://cdn.simpleicons.org/jquery/0769AD" },
+	{ id: 34, nome: "Bootstrap", destaque: false, descricao: "Framework CSS para construção rápida de interfaces responsivas.", imagem: "https://cdn.simpleicons.org/bootstrap/7952B3" },
+	{ id: 35, nome: "WordPress", destaque: false, descricao: "CMS em PHP para criação de sites e blogs.", imagem: "https://cdn.simpleicons.org/wordpress/21759B" },
+	{ id: 36, nome: "Symfony", destaque: false, descricao: "Framework PHP robusto para aplicações web de grande porte.", imagem: "https://cdn.simpleicons.org/symfony/FFFFFF" },
+	{ id: 37, nome: "SASS", destaque: false, descricao: "Pré-processador CSS com variáveis, aninhamento e mixins.", imagem: "https://cdn.simpleicons.org/sass/CC6699" },
+	{ id: 38, nome: "Redis", destaque: false, descricao: "Banco de dados em memória usado para cache e filas.", imagem: "https://cdn.simpleicons.org/redis/FF4438" },
 ]
 
 export const tecnologiaPorId = (id: number): Tecnologia | undefined =>
@@ -104,8 +111,8 @@ export interface GrupoStack {
 }
 
 export const grupos: GrupoStack[] = [
-	{ titulo: "Front-end", ids: [1, 2, 3, 4, 10, 11, 12, 13, 22, 25] },
-	{ titulo: "Back-end", ids: [5, 6, 7, 8, 9, 16, 27, 30, 31, 28] },
+	{ titulo: "Front-end", ids: [1, 2, 37, 3, 33, 4, 10, 11, 12, 13, 22, 25, 34] },
+	{ titulo: "Back-end", ids: [5, 6, 7, 8, 9, 16, 27, 30, 31, 36, 35, 28] },
 	{ titulo: "Mobile", ids: [21, 26, 29] },
-	{ titulo: "Dados & Infra", ids: [14, 15, 23, 24, 20, 17, 18, 19] },
+	{ titulo: "Dados & Infra", ids: [14, 32, 15, 38, 23, 24, 20, 17, 18, 19] },
 ]
