@@ -1,26 +1,26 @@
-import Container from "@/components/shared/Container";
-import Projetos from "@/components/projetos/Projetos";
-import Curriculo from "@/components/curriculo";
-import Principal from "@/components/landing/Principal";
-import { obterTecnologias } from "@/functions/tecnologias";
-import { obterProjetos } from "@/functions/projetos";
+import Nav from "@/components/studio/Nav"
+import Hero from "@/components/studio/Hero"
+import BuildSimulation from "@/components/studio/BuildSimulation"
+import Services from "@/components/studio/Services"
+import About from "@/components/studio/About"
+import Stack from "@/components/studio/Stack"
+import Contact from "@/components/studio/Contact"
+import Footer from "@/components/studio/Footer"
 
-export default async function Home() {
-
-  const tecnologias= await obterTecnologias()
-  const projetos = await obterProjetos()
-
-  return (
-    <div>
-      <Principal tecnologias={tecnologias.destaques} />
-      <Container className="py-20 flex flex-col items-center gap-10">
-        <Projetos titulo = "Destaques" lista = {projetos.destaque}/>
-        <Projetos titulo = "Web" lista = {projetos.web}/>
-        <Projetos titulo = "Mobile" lista = {projetos.mobile}/>
-        <Projetos titulo = "Jogos" lista = {projetos.jogo}/>
-        <Curriculo tecnologias={tecnologias.todas} />
-      </Container>
-      
-    </div>
-  )
+export default function Home() {
+	return (
+		<>
+			<div className="grain" aria-hidden />
+			<Nav />
+			<main>
+				<Hero />
+				<BuildSimulation />
+				<Services />
+				<About />
+				<Stack />
+				<Contact />
+			</main>
+			<Footer />
+		</>
+	)
 }
