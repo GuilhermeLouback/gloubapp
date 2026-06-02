@@ -5,7 +5,13 @@
 //   • servicos:    o que o Guilherme faz (substitui a antiga lista de projetos).
 //   • grupos:      stack agrupada por área, para a seção de tecnologias.
 // =============================================================================
-import { Tecnologia } from "@core"
+export interface Tecnologia {
+	id: number
+	nome: string
+	descricao: string
+	imagem: string
+	destaque: boolean
+}
 
 const ASSETS = "https://github.com/portfolio-projetos-dev/assets/raw/main/images"
 

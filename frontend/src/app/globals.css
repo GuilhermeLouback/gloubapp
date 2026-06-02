@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@plugin "tailwindcss-animate";
-@plugin "@tailwindcss/typography";
-
 /* ============================================================
    BUILD STUDIO — design tokens
    ============================================================ */
@@ -219,12 +216,4 @@
 	.reveal { opacity: 1; transform: none; transition: none; }
 	.animate-fade-up, .animate-fade-in, .marquee-track, .floaty, .dot-live { animation: none; }
 	html { scroll-behavior: auto; }
-}
-
-/* react-markdown content inside the chat */
-[data-badges] {
-	@apply flex flex-row flex-wrap justify-center gap-2 p-1;
-}
-[data-badges] > img {
-	@apply m-0;
 }
