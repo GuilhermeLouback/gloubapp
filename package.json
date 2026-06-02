@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "npx concurrently \"cd backend && npm run start:dev\" \"cd frontend && npm run dev\""
+    "dev" : "npx concurrently \"cd backend && npm run start:dev\" \"cd frontend && npm run dev\"",
+    "dev:front": "cd frontend && npm run dev"
   },
   "repository": {
     "type": "git",

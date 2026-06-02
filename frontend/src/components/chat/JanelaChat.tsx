@@ -1,9 +1,8 @@
 "use client"
-import { ChangeEvent, KeyboardEvent, useEffect, useRef, useState } from "react"
-import { IconMessages, IconReload, IconSend } from "@tabler/icons-react"
+import { useEffect, useRef, useState } from "react"
+import { IconMessage2, IconReload, IconSend } from "@tabler/icons-react"
 import useChat from "@/hooks/useChat"
 import BalaoMensagem from "./BalaoMensagem"
-import Image from "next/image"
 
 export default function JanelaChat() {
 	const { mensagens, pensando, adicionarMensagem, limparMensagens } = useChat()
@@ -11,6 +10,7 @@ export default function JanelaChat() {
 	const fimChatRef = useRef<HTMLDivElement>(null)
 
 	function enviarMensagem() {
+		if (!texto.trim()) return
 		adicionarMensagem(texto)
 		setTexto("")
 	}
@@ -20,58 +20,87 @@ export default function JanelaChat() {
 	}, [mensagens])
 
 	return (
-		<div className="flex flex-col bg-zinc-300 rounded-2xl text-black overflow-hidden">
-			<div className="flex justify-between items-center bg-white p-4">
-				<h2 className="text-xl font-bold">Olá Visitante!</h2>
-				<IconReload
-					size={24}
-					className="text-black cursor-pointer"
-					onClick={limparMensagens}
-				/>
-			</div>
-			{mensagens.length === 0 ? (
-				<div className="flex flex-col justify-center items-center min-h-[400px] sm:min-h-[500px]">
-					<IconMessages size={230} stroke={0.2} className="text-black/30" />
-					<span>Vamos conversar?</span>
+		<div className="flex flex-col overflow-hidden rounded-2xl border border-line bg-panel text-ink shadow-2xl">
+			{/* header */}
+			<div className="flex items-center justify-between border-b border-line bg-panel-2/60 px-4 py-3">
+				<div className="flex items-center gap-2.5">
+					<span className="grid h-9 w-9 place-items-center rounded-full bg-lime text-bg">
+						<IconMessage2 size={18} />
+					</span>
+					<div className="leading-tight">
+						<div className="text-sm font-semibold">Assistente</div>
+						<div className="flex items-center gap-1.5 font-mono text-[10px] text-faint">
+							<span className="dot-live h-1.5 w-1.5 rounded-full bg-lime" /> online
+						</div>
+					</div>
 				</div>
-			) : (
-				<div className="flex flex-col p-2 gap-2 min-h-[400px] sm:min-h-[500px] max-h-[400px] sm:max-h-[500px] overflow-y-scroll">
-					{mensagens.map((mensagem, i) => {
-						const mesmoAutor = i > 0 && mensagens[i - 1].autor === mensagem.autor
-						return (
-							<BalaoMensagem
-								key={mensagem.id}
-								mensagem={mensagem}
-								omitirAutor={mesmoAutor}
-							/>
-						)
-					})}
-					{pensando && (
-						<Image src="/pensando.gif" alt="Pensando" width={50} height={50} />
-					)}
-					<div ref={fimChatRef}></div>
-				</div>
-			)}
-			<div className="h-px bg-zinc-400 mt-4" />
-			<div className="flex items-center gap-2 p-1 m-4 rounded-full h-10 bg-white ">
-				<input
-					type="text"
-					value={texto}
-					className="flex-1 bg-transparent h-8 outline-none pl-3"
-					onChange={(e: ChangeEvent<HTMLInputElement>) => {
-						setTexto(e.target.value)
-					}}
-					onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
-						if (e.key === "Enter") enviarMensagem()
-					}}
-				/>
 				<button
-					className="flex justify-center items-center min-h-8 min-w-8 rounded-full bg-red-500"
-					onClick={enviarMensagem}
+					onClick={limparMensagens}
+					className="text-faint transition-colors hover:text-ink"
+					aria-label="Limpar conversa"
 				>
-					<IconSend className="text-white" size={18} />
+					<IconReload size={18} />
 				</button>
 			</div>
+
+			{/* body */}
+			{mensagens.length === 0 ? (
+				<div className="flex min-h-[360px] flex-col items-center justify-center gap-3 px-8 text-center">
+					<span className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-panel-2 text-lime">
+						<IconMessage2 size={26} />
+					</span>
+					<p className="text-sm text-dim">
+						Olá! Pergunte sobre o Guilherme, seus serviços ou sua stack.
+					</p>
+				</div>
+			) : (
+				<div className="flex max-h-[420px] min-h-[360px] flex-col gap-3 overflow-y-auto p-3">
+					{mensagens.map((m, i) => {
+						const mesmoAutor = i > 0 && mensagens[i - 1].autor === m.autor
+						return <BalaoMensagem key={m.id} mensagem={m} omitirAutor={mesmoAutor} />
+					})}
+					{pensando && (
+						<div className="flex items-center gap-1 pl-2">
+							<Dot />
+							<Dot d={150} />
+							<Dot d={300} />
+						</div>
+					)}
+					<div ref={fimChatRef} />
+				</div>
+			)}
+
+			{/* input */}
+			<div className="border-t border-line p-3">
+				<div className="flex items-center gap-2 rounded-full border border-line bg-bg px-2 py-1">
+					<input
+						type="text"
+						value={texto}
+						placeholder="Escreva uma mensagem…"
+						className="h-9 flex-1 bg-transparent px-2 text-sm text-ink outline-none placeholder:text-faint"
+						onChange={(e) => setTexto(e.target.value)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter") enviarMensagem()
+						}}
+					/>
+					<button
+						onClick={enviarMensagem}
+						aria-label="Enviar"
+						className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-lime text-bg transition-colors hover:bg-lime-2"
+					>
+						<IconSend size={17} />
+					</button>
+				</div>
+			</div>
 		</div>
+	)
+}
+
+function Dot({ d = 0 }: { d?: number }) {
+	return (
+		<span
+			className="h-2 w-2 animate-bounce rounded-full bg-lime"
+			style={{ animationDelay: `${d}ms` }}
+		/>
 	)
 }

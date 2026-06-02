@@ -6,7 +6,13 @@ export default async function conversar(
 	mensagem: Mensagem
 ): Promise<string | null> {
 	const webhookUrl = process.env.CHAT_WEBHOOK
-	if (!webhookUrl) return null
+
+	// Modo somente-frontend: sem webhook configurado, devolve uma resposta local
+	// de exemplo para a UI do chat funcionar offline. Configure CHAT_WEBHOOK
+	// (ou remova este bloco) para usar o assistente real.
+	if (!webhookUrl) {
+		return `Olá! Esta é uma resposta de exemplo (modo local). Você disse: "${mensagem.texto}".`
+	}
 
 	const resposta = await fetch(webhookUrl, {
 		method: "POST",
