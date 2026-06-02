@@ -39,6 +39,8 @@ export const tecnologias: Tecnologia[] = [
 	{ id: 27, nome: "PHP", destaque: false, descricao: "Linguagem de programação de uso geral.", imagem: `${ASSETS}/php.svg` },
 	{ id: 28, nome: "ChatGPT", destaque: false, descricao: "Integração de IA conversacional baseada em GPT.", imagem: `${ASSETS}/openai.svg` },
 	{ id: 29, nome: "Dart", destaque: false, descricao: "Linguagem de programação para desenvolvimento de aplicativos móveis com Flutter.", imagem: `${ASSETS}/dart.svg` },
+	{ id: 30, nome: "Laravel", destaque: false, descricao: "Framework PHP para desenvolvimento web elegante e produtivo.", imagem: "https://cdn.simpleicons.org/laravel/FF2D20" },
+	{ id: 31, nome: "CodeIgniter", destaque: false, descricao: "Framework PHP leve e rápido para construção de aplicações web.", imagem: "https://cdn.simpleicons.org/codeigniter/EF4223" },
 ]
 
 export const tecnologiaPorId = (id: number): Tecnologia | undefined =>
@@ -103,7 +105,7 @@ export interface GrupoStack {
 
 export const grupos: GrupoStack[] = [
 	{ titulo: "Front-end", ids: [1, 2, 3, 4, 10, 11, 12, 13, 22, 25] },
-	{ titulo: "Back-end", ids: [5, 6, 7, 8, 9, 16, 27, 28] },
+	{ titulo: "Back-end", ids: [5, 6, 7, 8, 9, 16, 27, 30, 31, 28] },
 	{ titulo: "Mobile", ids: [21, 26, 29] },
 	{ titulo: "Dados & Infra", ids: [14, 15, 23, 24, 20, 17, 18, 19] },
 ]
