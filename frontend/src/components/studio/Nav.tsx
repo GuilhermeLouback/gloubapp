@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { IconMenu2, IconX, IconArrowUpRight } from "@tabler/icons-react"
+import { IconMenu2, IconX, IconArrowUpRight, IconBrandWhatsapp } from "@tabler/icons-react"
 
 const links = [
 	{ href: "#inicio", label: "Início", n: "01" },
@@ -65,7 +65,7 @@ export default function Nav() {
 							href={LINKEDIN}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hidden rounded-full border border-line px-4 py-2 text-sm text-dim transition-colors hover:border-lime/40 hover:text-ink sm:inline-flex"
+							className="hidden rounded-full border border-line px-4 py-2 text-sm text-dim transition-colors hover:border-lime/40 hover:text-ink md:inline-flex"
 						>
 							Perfil
 						</a>
@@ -73,13 +73,22 @@ export default function Nav() {
 							href={WHATSAPP}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="group inline-flex items-center gap-1.5 rounded-full bg-lime px-4 py-2 text-sm font-semibold text-bg transition-colors hover:bg-lime-2"
+							className="group hidden items-center gap-1.5 whitespace-nowrap rounded-full bg-lime px-4 py-2 text-sm font-semibold text-bg transition-colors hover:bg-lime-2 md:inline-flex"
 						>
 							Vamos conversar
 							<IconArrowUpRight
 								size={16}
 								className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
 							/>
+						</a>
+						<a
+							href={WHATSAPP}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Falar no WhatsApp"
+							className="grid h-9 w-9 place-items-center rounded-full bg-lime text-bg transition-colors hover:bg-lime-2 md:hidden"
+						>
+							<IconBrandWhatsapp size={18} />
 						</a>
 						<button
 							onClick={() => setOpen((v) => !v)}
