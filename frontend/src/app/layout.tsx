@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from "next/font/google"
+import { SITE_URL } from "@/data/contato"
 import "./globals.css"
 
 const display = Bricolage_Grotesque({
@@ -21,20 +22,29 @@ const mono = JetBrains_Mono({
 	display: "swap",
 })
 
+const title = "Guilherme Louback — Desenvolvedor · Crio sites e aplicativos"
+const description =
+	"Desenvolvedor full-stack. Transformo ideias em sites e aplicativos sob medida — do código ao produto."
+
 export const metadata: Metadata = {
-	title: "Guilherme Louback — Desenvolvedor · Crio sites e aplicativos",
-	description:
-		"Desenvolvedor full-stack. Transformo ideias em sites e aplicativos sob medida — do código ao produto.",
+	metadataBase: new URL(SITE_URL),
+	title,
+	description,
+	alternates: { canonical: "/" },
+	openGraph: {
+		type: "website",
+		locale: "pt_BR",
+		url: "/",
+		siteName: "Guilherme Louback",
+		title,
+		description,
+	},
+	twitter: { card: "summary_large_image", title, description },
 }
 
-export default function RootLayout({
-	children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html
-			lang="pt-BR"
-			className={`${display.variable} ${sans.variable} ${mono.variable}`}
-		>
+		<html lang="pt-BR" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
 			<body className="antialiased">{children}</body>
 		</html>
 	)

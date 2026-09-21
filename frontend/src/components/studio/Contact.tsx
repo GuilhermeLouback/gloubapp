@@ -7,11 +7,7 @@ import {
 } from "@tabler/icons-react"
 import SectionLabel from "./SectionLabel"
 import Reveal from "./Reveal"
-
-const WHATSAPP = "https://wa.me/5532998359433"
-const LINKEDIN = "https://www.linkedin.com/in/guilherme-louback-45b530218/"
-const GITHUB = "https://github.com/GuilhermeLouback"
-const EMAIL = "mailto:guiloubackvirgilio@gmail.com"
+import { EMAIL, GITHUB, LINKEDIN, WHATSAPP } from "@/data/contato"
 
 type Ic = React.ComponentType<{ size?: number; className?: string }>
 
@@ -24,7 +20,10 @@ const socials: { href: string; label: string; icon: Ic }[] = [
 
 export default function Contact() {
 	return (
-		<section id="contato" className="relative overflow-hidden border-t border-line py-24 sm:py-32">
+		<section
+			id="contato"
+			className="relative overflow-hidden border-t border-line py-24 sm:py-32"
+		>
 			<div className="bp-grid mask-fade-b absolute inset-0 opacity-50" />
 			<div
 				className="glow"

@@ -38,7 +38,8 @@ export default function Footer() {
 			<div className="border-t border-line">
 				<div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
 					<p className="font-mono text-[11px] text-faint">
-						© 2026 Guilherme Louback — todos os direitos reservados.
+						© {new Date().getFullYear()} Guilherme Louback — todos os direitos
+						reservados.
 					</p>
 					<p className="font-mono text-[11px] text-faint">
 						feito com <span className="text-lime">Next.js</span> & café

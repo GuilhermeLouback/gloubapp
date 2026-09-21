@@ -1,22 +1,18 @@
 {
   "name": "gloubapp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Site de apresentação de Guilherme Louback — gloubapp.com",
+  "author": "Guilherme Louback",
+  "license": "ISC",
   "scripts": {
-    "dev": "cd frontend && npm run dev",
-    "build": "cd frontend && npm run build"
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint",
+    "test": "npm --prefix frontend test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GuilhermeLouback/gloubapp.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/GuilhermeLouback/gloubapp/issues"
-  },
-  "homepage": "https://github.com/GuilhermeLouback/gloubapp#readme"
+  "homepage": "https://gloubapp.com"
 }

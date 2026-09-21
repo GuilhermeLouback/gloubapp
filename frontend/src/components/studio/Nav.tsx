@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { IconMenu2, IconX, IconArrowUpRight, IconBrandWhatsapp } from "@tabler/icons-react"
+import { LINKEDIN, WHATSAPP } from "@/data/contato"
 
 const links = [
 	{ href: "#inicio", label: "Início", n: "01" },
@@ -9,9 +10,6 @@ const links = [
 	{ href: "#sobre", label: "Sobre", n: "04" },
 	{ href: "#stack", label: "Stack", n: "05" },
 ]
-
-const WHATSAPP = "https://wa.me/5532998359433"
-const LINKEDIN = "https://www.linkedin.com/in/guilherme-louback-45b530218/"
 
 export default function Nav() {
 	const [scrolled, setScrolled] = useState(false)
@@ -93,7 +91,9 @@ export default function Nav() {
 						<button
 							onClick={() => setOpen((v) => !v)}
 							className="grid h-9 w-9 place-items-center rounded-md border border-line text-ink md:hidden"
-							aria-label="Abrir menu"
+							aria-label={open ? "Fechar menu" : "Abrir menu"}
+							aria-expanded={open}
+							aria-controls="menu-mobile"
 						>
 							{open ? <IconX size={18} /> : <IconMenu2 size={18} />}
 						</button>
@@ -103,7 +103,10 @@ export default function Nav() {
 
 			{/* mobile menu */}
 			{open && (
-				<div className="border-t border-line bg-bg/95 backdrop-blur-xl md:hidden">
+				<div
+					id="menu-mobile"
+					className="border-t border-line bg-bg/95 backdrop-blur-xl md:hidden"
+				>
 					<nav className="mx-auto flex max-w-7xl flex-col px-5 py-3">
 						{links.map((l) => (
 							<a

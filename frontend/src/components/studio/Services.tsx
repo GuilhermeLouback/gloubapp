@@ -22,8 +22,8 @@ export default function Services() {
 					O que eu coloco <span className="text-lime">no ar</span> para você.
 				</h2>
 				<p className="mt-4 max-w-xl text-dim">
-					Da ideia ao deploy, cuido de todas as camadas do produto — front-end,
-					back-end, mobile e infraestrutura.
+					Da ideia ao deploy, cuido de todas as camadas do produto — front-end, back-end,
+					mobile e infraestrutura.
 				</p>
 
 				<div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -37,16 +37,28 @@ export default function Services() {
 										<span className="grid h-12 w-12 place-items-center rounded-lg border border-lime/30 bg-lime/10 text-lime">
 											<Icon size={22} />
 										</span>
-										<span className="font-mono text-sm text-faint">{s.num}</span>
+										<span className="font-mono text-sm text-faint">
+											{s.num}
+										</span>
 									</div>
 
-									<h3 className="mt-6 text-xl font-semibold text-ink">{s.titulo}</h3>
-									<p className="mt-2 text-sm leading-relaxed text-dim">{s.descricao}</p>
+									<h3 className="mt-6 text-xl font-semibold text-ink">
+										{s.titulo}
+									</h3>
+									<p className="mt-2 text-sm leading-relaxed text-dim">
+										{s.descricao}
+									</p>
 
 									<ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2">
 										{s.itens.map((item) => (
-											<li key={item} className="flex items-center gap-2 text-sm text-dim">
-												<IconCheck size={14} className="shrink-0 text-lime" />
+											<li
+												key={item}
+												className="flex items-center gap-2 text-sm text-dim"
+											>
+												<IconCheck
+													size={14}
+													className="shrink-0 text-lime"
+												/>
 												{item}
 											</li>
 										))}
@@ -59,7 +71,12 @@ export default function Services() {
 												className="relative h-5 w-5 opacity-70 transition-opacity group-hover:opacity-100"
 												title={t.nome}
 											>
-												<Image src={t.imagem} alt={t.nome} fill className="object-contain" />
+												<Image
+													src={t.imagem}
+													alt={t.nome}
+													fill
+													className="object-contain"
+												/>
 											</span>
 										))}
 									</div>

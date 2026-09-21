@@ -1,8 +1,7 @@
 import Image from "next/image"
 import { IconArrowDown, IconArrowUpRight } from "@tabler/icons-react"
 import { tecnologias } from "@/data/portfolio"
-
-const WHATSAPP = "https://wa.me/5532998359433"
+import { WHATSAPP } from "@/data/contato"
 
 const spec = [
 	["STATUS", "disponível", true],
@@ -10,7 +9,7 @@ const spec = [
 	["FUNÇÃO", "Dev full-stack", false],
 	["FOCO", "Web & Mobile", false],
 	["EXPERIÊNCIA", "+5 anos", false],
-	["STACK", "29 tecnologias", false],
+	["STACK", `${tecnologias.length} tecnologias`, false],
 ] as const
 
 export default function Hero() {
@@ -70,9 +69,8 @@ export default function Hero() {
 						className="animate-fade-up mt-7 max-w-xl text-base leading-relaxed text-dim sm:text-lg"
 						style={{ animationDelay: "160ms" }}
 					>
-						Sou o Guilherme, desenvolvedor full-stack. Do primeiro commit ao
-						deploy, construo produtos digitais rápidos, bonitos e que as pessoas
-						gostam de usar.
+						Sou o Guilherme, desenvolvedor full-stack. Do primeiro commit ao deploy,
+						construo produtos digitais rápidos, bonitos e que as pessoas gostam de usar.
 					</p>
 
 					<div
@@ -120,12 +118,17 @@ export default function Hero() {
 						</div>
 						<dl className="divide-y divide-line font-mono text-sm">
 							{spec.map(([k, v, live]) => (
-								<div key={k} className="flex items-center justify-between px-4 py-3">
+								<div
+									key={k}
+									className="flex items-center justify-between px-4 py-3"
+								>
 									<dt className="text-[11px] uppercase tracking-wider text-faint">
 										{k}
 									</dt>
 									<dd className="flex items-center gap-2 text-ink">
-										{live && <span className="dot-live h-1.5 w-1.5 rounded-full bg-lime" />}
+										{live && (
+											<span className="dot-live h-1.5 w-1.5 rounded-full bg-lime" />
+										)}
 										{v}
 									</dd>
 								</div>
@@ -144,9 +147,14 @@ export default function Hero() {
 				<div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent" />
 				<div className="flex w-max marquee-track items-center gap-12 px-6">
 					{marquee.map((t, i) => (
-						<div key={i} className="flex items-center gap-2.5 opacity-70">
+						<div
+							key={i}
+							className="flex items-center gap-2.5 opacity-70"
+							// só a primeira volta é lida por leitores de tela; as cópias existem para o loop visual
+							aria-hidden={i >= logos.length || undefined}
+						>
 							<span className="relative h-6 w-6">
-								<Image src={t.imagem} alt={t.nome} fill className="object-contain" />
+								<Image src={t.imagem} alt="" fill className="object-contain" />
 							</span>
 							<span className="font-mono text-sm text-dim">{t.nome}</span>
 						</div>

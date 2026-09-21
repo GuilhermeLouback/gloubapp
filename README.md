@@ -40,7 +40,7 @@ Site de **apresentação** pessoal com identidade visual **"Build Studio"** — 
 
 ## 🚀 Rodando localmente
 
-> Requer **Node 18+** (testado com Node 22).
+> Requer **Node 22+**.
 
 ```bash
 # entre na aplicação
@@ -68,15 +68,27 @@ npm start
 ```
 gloubapp/
 ├─ frontend/                    # a aplicação (o site)
-│  ├─ src/app/                  # rotas — App Router
+│  ├─ src/app/                  # rotas — App Router (+ OG image, robots, sitemap)
 │  ├─ src/components/studio/    # seções do site (Hero, BuildSimulation, ...)
 │  ├─ src/data/portfolio.ts     # conteúdo: serviços + stack de tecnologias
-│  └─ public/                   # imagens e assets
-├─ core/                        # tipos TypeScript compartilhados
-└─ backend/                     # (legado) API NestJS — não usada pelo site atual
+│  ├─ src/data/contato.ts       # links de contato e URL do site
+│  └─ public/tech/              # ícones das tecnologias (SVG locais)
+└─ .github/workflows/ci.yml     # lint, tipos, formatação, testes e build
 ```
 
-> ℹ️ O site é **frontend-only**. As pastas `backend/` e `core/` são legado do projeto original e **não** são necessárias para rodar ou publicar o site. Para editar o conteúdo (serviços e tecnologias), altere [`frontend/src/data/portfolio.ts`](frontend/src/data/portfolio.ts).
+> ℹ️ Para editar o conteúdo (serviços e tecnologias), altere [`frontend/src/data/portfolio.ts`](frontend/src/data/portfolio.ts). Ao adicionar uma tecnologia, coloque o ícone em `frontend/public/tech/` — o teste `npm test` falha se algum ícone estiver faltando.
+
+## ✅ Qualidade
+
+```bash
+cd frontend
+npm run lint          # ESLint
+npm run typecheck     # TypeScript
+npm run format:check  # Prettier (npm run format para corrigir)
+npm test              # Vitest
+```
+
+O mesmo conjunto roda no GitHub Actions a cada push e pull request.
 
 ## ☁️ Deploy
 

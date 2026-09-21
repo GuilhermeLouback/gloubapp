@@ -20,7 +20,9 @@ export default function Stack() {
 									<span className="font-mono text-xs uppercase tracking-[0.2em] text-faint">
 										{String(gi + 1).padStart(2, "0")}
 									</span>
-									<h3 className="mt-1 text-xl font-semibold text-ink">{g.titulo}</h3>
+									<h3 className="mt-1 text-xl font-semibold text-ink">
+										{g.titulo}
+									</h3>
 								</div>
 								<div className="flex flex-wrap gap-2.5 lg:col-span-9">
 									{tecsPorIds(g.ids).map((t) => (
@@ -29,7 +31,12 @@ export default function Stack() {
 											className="group flex items-center gap-2 rounded-lg border border-line bg-panel px-3 py-2 transition-all hover:-translate-y-0.5 hover:border-lime/40"
 										>
 											<span className="relative h-5 w-5">
-												<Image src={t.imagem} alt={t.nome} fill className="object-contain" />
+												<Image
+													src={t.imagem}
+													alt=""
+													fill
+													className="object-contain"
+												/>
 											</span>
 											<span className="text-sm text-dim transition-colors group-hover:text-ink">
 												{t.nome}

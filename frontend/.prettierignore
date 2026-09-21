@@ -1,0 +1,5 @@
+package-lock.json
+.next/
+out/
+public/
+next-env.d.ts

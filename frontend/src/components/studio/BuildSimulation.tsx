@@ -23,35 +23,183 @@ type Ic = React.ComponentType<{ size?: number; className?: string }>
 type Tok = [string, string?]
 
 const SITE: Tok[][] = [
-	[["export ", "t-k"], ["default ", "t-k"], ["function ", "t-k"], ["Site", "t-t"], ["() {", "t-p"]],
-	[["  return ", "t-k"], ["(", "t-p"]],
-	[["    <", "t-p"], ["main", "t-t"], [" className", "t-a"], ["=", "t-p"], ['"page"', "t-s"], [">", "t-p"]],
-	[["      <", "t-p"], ["Navbar", "t-t"], [" brand", "t-a"], ["=", "t-p"], ['"Aurora"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Hero", "t-t"]],
-	[["        title", "t-a"], ["=", "t-p"], ['"Crie sem limites"', "t-s"]],
-	[["        action", "t-a"], ["=", "t-p"], ['"Começar agora"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Features", "t-t"], [" cols", "t-a"], ["=", "t-p"], ["{3}", "t-n"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Pricing", "t-t"], [" plano", "t-a"], ["=", "t-p"], ['"Pro"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Footer", "t-t"], [" ano", "t-a"], ["=", "t-p"], ["{2026}", "t-n"], [" />", "t-p"]],
-	[["    </", "t-p"], ["main", "t-t"], [">", "t-p"]],
+	[
+		["export ", "t-k"],
+		["default ", "t-k"],
+		["function ", "t-k"],
+		["Site", "t-t"],
+		["() {", "t-p"],
+	],
+	[
+		["  return ", "t-k"],
+		["(", "t-p"],
+	],
+	[
+		["    <", "t-p"],
+		["main", "t-t"],
+		[" className", "t-a"],
+		["=", "t-p"],
+		['"page"', "t-s"],
+		[">", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Navbar", "t-t"],
+		[" brand", "t-a"],
+		["=", "t-p"],
+		['"Aurora"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Hero", "t-t"],
+	],
+	[
+		["        title", "t-a"],
+		["=", "t-p"],
+		['"Crie sem limites"', "t-s"],
+	],
+	[
+		["        action", "t-a"],
+		["=", "t-p"],
+		['"Começar agora"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Features", "t-t"],
+		[" cols", "t-a"],
+		["=", "t-p"],
+		["{3}", "t-n"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Pricing", "t-t"],
+		[" plano", "t-a"],
+		["=", "t-p"],
+		['"Pro"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Footer", "t-t"],
+		[" ano", "t-a"],
+		["=", "t-p"],
+		["{2026}", "t-n"],
+		[" />", "t-p"],
+	],
+	[
+		["    </", "t-p"],
+		["main", "t-t"],
+		[">", "t-p"],
+	],
 	[["  )", "t-p"]],
 	[["}", "t-p"]],
 ]
 
 const APP: Tok[][] = [
-	[["export ", "t-k"], ["function ", "t-k"], ["App", "t-t"], ["() {", "t-p"]],
-	[["  return ", "t-k"], ["(", "t-p"]],
-	[["    <", "t-p"], ["Screen", "t-t"], [" tema", "t-a"], ["=", "t-p"], ['"dark"', "t-s"], [">", "t-p"]],
-	[["      <", "t-p"], ["Status", "t-t"], [" hora", "t-a"], ["=", "t-p"], ['"9:41"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Saldo", "t-t"], [" valor", "t-a"], ["=", "t-p"], ['"R$ 12.480"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Acoes", "t-t"], [" a", "t-a"], ["=", "t-p"], ['"Enviar"', "t-s"], [" b", "t-a"], ["=", "t-p"], ['"Receber"', "t-s"], [" />", "t-p"]],
-	[["      <", "t-p"], ["Lista", "t-t"], [">", "t-p"]],
-	[["        <", "t-p"], ["Item", "t-t"], [" nome", "t-a"], ["=", "t-p"], ['"Spotify"', "t-s"], [" v", "t-a"], ["=", "t-p"], ['"-39,90"', "t-s"], [" />", "t-p"]],
-	[["        <", "t-p"], ["Item", "t-t"], [" nome", "t-a"], ["=", "t-p"], ['"Salário"', "t-s"], [" v", "t-a"], ["=", "t-p"], ['"+5.200"', "t-s"], [" />", "t-p"]],
-	[["        <", "t-p"], ["Item", "t-t"], [" nome", "t-a"], ["=", "t-p"], ['"iFood"', "t-s"], [" v", "t-a"], ["=", "t-p"], ['"-72,40"', "t-s"], [" />", "t-p"]],
-	[["      </", "t-p"], ["Lista", "t-t"], [">", "t-p"]],
-	[["      <", "t-p"], ["TabBar", "t-t"], [" ativo", "t-a"], ["=", "t-p"], ['"home"', "t-s"], [" />", "t-p"]],
-	[["    </", "t-p"], ["Screen", "t-t"], [">", "t-p"]],
+	[
+		["export ", "t-k"],
+		["function ", "t-k"],
+		["App", "t-t"],
+		["() {", "t-p"],
+	],
+	[
+		["  return ", "t-k"],
+		["(", "t-p"],
+	],
+	[
+		["    <", "t-p"],
+		["Screen", "t-t"],
+		[" tema", "t-a"],
+		["=", "t-p"],
+		['"dark"', "t-s"],
+		[">", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Status", "t-t"],
+		[" hora", "t-a"],
+		["=", "t-p"],
+		['"9:41"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Saldo", "t-t"],
+		[" valor", "t-a"],
+		["=", "t-p"],
+		['"R$ 12.480"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Acoes", "t-t"],
+		[" a", "t-a"],
+		["=", "t-p"],
+		['"Enviar"', "t-s"],
+		[" b", "t-a"],
+		["=", "t-p"],
+		['"Receber"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["Lista", "t-t"],
+		[">", "t-p"],
+	],
+	[
+		["        <", "t-p"],
+		["Item", "t-t"],
+		[" nome", "t-a"],
+		["=", "t-p"],
+		['"Spotify"', "t-s"],
+		[" v", "t-a"],
+		["=", "t-p"],
+		['"-39,90"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["        <", "t-p"],
+		["Item", "t-t"],
+		[" nome", "t-a"],
+		["=", "t-p"],
+		['"Salário"', "t-s"],
+		[" v", "t-a"],
+		["=", "t-p"],
+		['"+5.200"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["        <", "t-p"],
+		["Item", "t-t"],
+		[" nome", "t-a"],
+		["=", "t-p"],
+		['"iFood"', "t-s"],
+		[" v", "t-a"],
+		["=", "t-p"],
+		['"-72,40"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["      </", "t-p"],
+		["Lista", "t-t"],
+		[">", "t-p"],
+	],
+	[
+		["      <", "t-p"],
+		["TabBar", "t-t"],
+		[" ativo", "t-a"],
+		["=", "t-p"],
+		['"home"', "t-s"],
+		[" />", "t-p"],
+	],
+	[
+		["    </", "t-p"],
+		["Screen", "t-t"],
+		[">", "t-p"],
+	],
 	[["  )", "t-p"]],
 	[["}", "t-p"]],
 ]
@@ -125,10 +273,18 @@ export default function BuildSimulation() {
 						</p>
 					</div>
 					<div className="inline-flex shrink-0 self-start rounded-full border border-line bg-panel p-1 lg:self-auto">
-						<Tab active={mode === "site"} onClick={() => switchMode("site")} icon={IconWorld}>
+						<Tab
+							active={mode === "site"}
+							onClick={() => switchMode("site")}
+							icon={IconWorld}
+						>
 							Website
 						</Tab>
-						<Tab active={mode === "app"} onClick={() => switchMode("app")} icon={IconDeviceMobile}>
+						<Tab
+							active={mode === "app"}
+							onClick={() => switchMode("app")}
+							icon={IconDeviceMobile}
+						>
 							Aplicativo
 						</Tab>
 					</div>
@@ -143,7 +299,9 @@ export default function BuildSimulation() {
 								<span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
 								<span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
 								<span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-								<span className="ml-2 font-mono text-[11px] text-faint">{cfg.file}</span>
+								<span className="ml-2 font-mono text-[11px] text-faint">
+									{cfg.file}
+								</span>
 							</div>
 							<span className="font-mono text-[11px] text-faint">{cfg.lang}</span>
 						</div>
@@ -159,7 +317,9 @@ export default function BuildSimulation() {
 												{tok[0]}
 											</span>
 										))}
-										{i === step - 1 && !done && <span className="caret ml-0.5" />}
+										{i === step - 1 && !done && (
+											<span className="caret ml-0.5" />
+										)}
 									</code>
 								</div>
 							))}
@@ -169,7 +329,9 @@ export default function BuildSimulation() {
 								{done ? (
 									<>
 										<IconCheck size={13} className="text-lime" />
-										<span className="text-lime">build concluído · deploy ok</span>
+										<span className="text-lime">
+											build concluído · deploy ok
+										</span>
 									</>
 								) : (
 									<>
@@ -300,7 +462,9 @@ function SitePreview({ step }: { step: number }) {
 						<span className="font-semibold text-ink">Plano Pro</span>
 						<div className="h-1 w-16 rounded bg-line" />
 					</div>
-					<span className="rounded-full bg-lime px-2 py-0.5 font-bold text-bg">R$ 49</span>
+					<span className="rounded-full bg-lime px-2 py-0.5 font-bold text-bg">
+						R$ 49
+					</span>
 				</div>
 			)}
 			{step >= 10 && (
@@ -370,17 +534,7 @@ function AppPreview({ step }: { step: number }) {
 	)
 }
 
-function Row({
-	icon: Icon,
-	name,
-	v,
-	neg,
-}: {
-	icon: Ic
-	name: string
-	v: string
-	neg?: boolean
-}) {
+function Row({ icon: Icon, name, v, neg }: { icon: Ic; name: string; v: string; neg?: boolean }) {
 	return (
 		<div className="bp-part flex items-center gap-2 rounded-xl border border-line bg-panel-2 px-2 py-2">
 			<span className="grid h-6 w-6 place-items-center rounded-full bg-bg text-ink">

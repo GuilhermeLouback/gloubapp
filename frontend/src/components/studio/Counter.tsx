@@ -9,7 +9,12 @@ interface CounterProps {
 }
 
 // Conta de 0 até `value` quando entra na viewport.
-export default function Counter({ value, prefix = "", suffix = "", duration = 1400 }: CounterProps) {
+export default function Counter({
+	value,
+	prefix = "",
+	suffix = "",
+	duration = 1400,
+}: CounterProps) {
 	const [n, setN] = useState(0)
 	const ref = useRef<HTMLSpanElement>(null)
 	const started = useRef(false)
@@ -37,7 +42,7 @@ export default function Counter({ value, prefix = "", suffix = "", duration = 14
 				}
 				requestAnimationFrame(tick)
 			},
-			{ threshold: 0.5 }
+			{ threshold: 0.5 },
 		)
 		io.observe(el)
 		return () => io.disconnect()

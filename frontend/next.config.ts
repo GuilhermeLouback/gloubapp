@@ -1,21 +1,7 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
+// Todas as imagens são locais (public/). SVGs são servidos sem otimização
+// automaticamente pelo next/image; fotos passam pelo otimizador.
+const nextConfig: NextConfig = {}
 
-const nextConfig: NextConfig = {
-  images: {
-    // Ícones de tecnologia são SVGs remotos (github/simpleicons). O otimizador
-    // da Vercel falha (502) ao buscar alguns deles em produção — então servimos
-    // direto da fonte, sem otimização. Em SVG minúsculo não há perda real.
-    unoptimized: true,
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
-}
-
-export default nextConfig;
+export default nextConfig

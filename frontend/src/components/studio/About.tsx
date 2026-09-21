@@ -33,9 +33,12 @@ export default function About() {
 							/>
 							<div className="relative overflow-hidden rounded-2xl border border-line bg-panel">
 								<div className="flex items-center justify-between border-b border-line bg-panel-2/60 px-4 py-2">
-									<span className="font-mono text-[11px] text-faint">guilherme.jpg</span>
+									<span className="font-mono text-[11px] text-faint">
+										guilherme.jpg
+									</span>
 									<span className="flex items-center gap-1.5 font-mono text-[11px] text-lime">
-										<span className="dot-live h-1.5 w-1.5 rounded-full bg-lime" /> online
+										<span className="dot-live h-1.5 w-1.5 rounded-full bg-lime" />{" "}
+										online
 									</span>
 								</div>
 								<div className="relative aspect-[4/5] w-full">
@@ -66,9 +69,16 @@ export default function About() {
 						<Reveal delay={160}>
 							<div className="mt-9 grid grid-cols-3 gap-3 sm:gap-4">
 								{stats.map((s) => (
-									<div key={s.label} className="rounded-xl border border-line bg-panel p-4 sm:p-5">
+									<div
+										key={s.label}
+										className="rounded-xl border border-line bg-panel p-4 sm:p-5"
+									>
 										<div className="font-display text-3xl font-extrabold text-lime sm:text-4xl">
-											<Counter prefix={s.prefix} value={s.value} suffix={s.suffix} />
+											<Counter
+												prefix={s.prefix}
+												value={s.value}
+												suffix={s.suffix}
+											/>
 										</div>
 										<div className="mt-1 text-xs leading-snug text-dim sm:text-sm">
 											{s.label}
